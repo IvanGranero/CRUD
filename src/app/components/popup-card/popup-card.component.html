@@ -1,0 +1,45 @@
+
+<div class="centerCard">
+    
+    <div class="floatingCard">
+        <div class="text-row">
+            <h3 class="poppinsFont"> {{ title }} usuario </h3>
+            <div class="closeButton" (click)="onClickClose()">
+                <img style="width: 12px; height: 12px;" src="assets/images/icono_cerrar.svg">
+            </div>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="text-row">
+            <h5 class="poppinsFont">Nombre</h5>
+            <h5 class="poppinsFont" style="margin-left: 10em;">Apellido</h5>
+        </div>
+
+        <div class="input-row">
+            <input class="input-field" type="text" name="nombre" [(ngModel)]="user.firstName">
+            <input class="input-field" type="text" name="apellido" [(ngModel)]="user.lastName">
+        </div>
+        <div class="text-row">
+            <h5 class="poppinsFont">Ubicación</h5>
+            <h5 class="poppinsFont" style="margin-left: 10em;">Celular</h5>
+        </div>
+        <div class="input-row">
+            <input class="input-field" type="text" name="ubicacion" [(ngModel)]="user.location">
+            <input class="input-field" type="text" name="celular" [(ngModel)]="user.phone">    
+        </div>
+        <div class="choice-row">
+            <input [checked]="user.gender=='m'" type="radio" value="m" name="gender" [(ngModel)]="user.gender"> <h6 class="poppinsFont">Hombre</h6>
+            <input [checked]="user.gender=='f'" type="radio" value="f" name="gender" [(ngModel)]="user.gender"> <h6 class="poppinsFont">Mujer</h6>
+        </div>
+        <div class="button-row">
+            <div class="submitButton" (click)="onClickSubmit()">
+                <div class="poppinsFont" style="margin: 3px;"> {{ submitTitle }} </div>
+            </div>
+        </div>
+        <div class="cancelButton" (click)="onClickClose()">
+            <p class="poppinsFont">Cancelar</p>
+        </div>
+
+    </div>
+</div>

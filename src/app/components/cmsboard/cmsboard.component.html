@@ -1,0 +1,59 @@
+  <div class="full">
+
+    <div class="top">
+      <h3 class="poppinsFont" style="color: white;">Ejercicio CMS</h3>
+      <div class="addUserButton" (click)="onClickAdd()">
+        <div style="margin: 3px;">Agregar usuario</div>
+        <div style="margin: 3px;"><img style="width: 12px; height: 12px;" src="assets/images/icono_agregar.svg"></div>
+      </div>
+    </div>
+  
+    <div class="main">
+      <div class="middle-row">
+  
+          <div class="usuarios-row" style="justify-self: flex-start;">
+            <div class="usuarios-icon">
+              <img src="assets/images/icono_usuarios.svg">
+            </div>
+  
+            <div style="display: flex;">
+              <h4 class="poppinsFont">Usuarios</h4>
+            </div>
+          </div>
+  
+          <div class="search">
+            <input class="search-field" type="search" placeholder="Buscador" [(ngModel)] = "searchTerm" (ngModelChange) = "search()">
+          </div>
+      </div>
+
+      <div class="users-main">
+        <div *ngFor = "let user of users">
+          <app-user-card 
+          [user]="user"
+          (clickEdit)="editCard($event)"
+          ></app-user-card>
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+  <div *ngIf="tabSelected=='add'" class="popup">
+    <app-popup-card
+    title="Agregar"
+    submitTitle="Agregar"
+    [user]="userInCard"
+    (onCloseCard)="closeCard()"
+    (onSubmit)="submitCard($event)"
+    ></app-popup-card>
+  </div>
+  
+  <div *ngIf="tabSelected=='edit'" class="popup">
+    <app-popup-card
+    title="Editar"
+    submitTitle = "Guardar"
+    [user]="userInCard"
+    (onCloseCard)="closeCard()"
+    (onSubmit)="submitCard($event)"
+    ></app-popup-card>
+  </div>
+  

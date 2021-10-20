@@ -1,0 +1,25 @@
+<div class="userCard">
+    <div class="userCardHeader">
+        <h4 class="poppinsFont"> {{ user.firstName }} {{ user.lastName }} </h4>
+        <div class="editButton" (click)="onClickEdit(user)">
+            <img src="assets/images/icono_editar.svg">
+        </div>
+        
+    </div>
+    <div class="userCardMain">
+        <div class="genderIcon">
+            <img *ngIf="user.gender=='m'" style="width: 50px; height: 45px;" src="assets/images/icono_hombre.svg">
+            <img *ngIf="user.gender=='f'" style="width: 50px; height: 45px;" src="assets/images/icono_mujer.svg">
+        </div>
+        <div class="info">
+            <div>
+                {{ user.location }}
+            </div>
+            <div>
+                {{ user.phone | phone }}
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
